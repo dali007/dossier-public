@@ -1,0 +1,5 @@
+﻿#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=380600,CODECS="avc1.4d00c,mp3.40.2",RESOLUTION=320x180
+http://static.alarab.com/MMS_Files/MP3/mp3_files//W/Wafiq%207abeb/Sabeya2010/Alarab_Wafeq_08_Ta3ab-El-Meshwar.mp3
+Title1=غربة.mp3

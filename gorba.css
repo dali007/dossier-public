@@ -1,0 +1,65 @@
+body {
+    background-color: #e9feeb;
+    cursor: url("http://www.jetsetmagazine.net/images/lavieestbelle.png"),pointer;
+    font-family: "Source Sans Pro","Lucida Grande",Verdana,"Avenir Next","Trebuchet MS","Helvetica Neue",Helvetica,Arial,sans-serif;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+   
+    }
+
+img {
+    width: 800;
+    height: 600;
+    
+}    
+#Header1_ImgLogo{
+    height:120; 
+    width:150; 
+    
+}
+a:hover{
+     cursor: url("http://www.jetsetmagazine.net/images/lavieestbelle.png"),pointer;
+}
+img:hover{
+     cursor: url("http://www.jetsetmagazine.net/images/lavieestbelle.png"),pointer;
+}
+a link:hover{
+     cursor: wait;
+}
+#carrousel {
+      width: 690; 
+      height: 600;
+    }
+  
+#example3{ /*Demo 3 main container*/
+width: 250px;
+height: 860px;
+border: 10px solid navy;
+padding: 4px;
+background-color: pink;
+
+}
+
+#example3 p{ /*Demo 3 P element that separates each entry*/
+margin-top: 0;
+margin-bottom: 7px;
+}
+
+code{ /*CSS for insructions*/
+color: red;
+}
+  .titlefield{ /*CSS for RSS title link in general*/
+text-decoration: none;
+}
+
+.labelfield{ /*CSS for label field in general*/
+color:brown;
+font-size: 90%;
+}
+
+.datefield{ /*CSS for date field in general*/
+color:gray;
+font-size: 90%;
+}
+

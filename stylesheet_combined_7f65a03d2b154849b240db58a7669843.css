@@ -1,0 +1,969 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'HarabaraBold';
+	src: url('http://www.maisons-comtoises.org/fonts/harabara-webfont.eot');
+	src: url('http://www.maisons-comtoises.org/fonts/harabara-webfont.eot?#iefix') format('embedded-opentype'),
+		url('http://www.maisons-comtoises.org/fonts/harabara-webfont.woff2') format('woff2'),
+		url('http://www.maisons-comtoises.org/fonts/harabara-webfont.woff') format('woff'),
+		url('http://www.maisons-comtoises.org/fonts/harabara-webfont.ttf') format('truetype'),
+	url('http://www.maisons-comtoises.org/fonts/harabara-webfont.svg#HarabaraBold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*valeurs prédéfinies*/
+ /*#fed700 ffd800*/
+ /* #9cc0ea */
+
+/*default link styles*/
+a, a:link a:active {
+	/*text-decoration: underline;*/
+	color: #9d0016;
+}
+a:visited {
+	/*text-decoration: underline;*/
+	color: #9d0016;
+}
+a:hover {
+	text-decoration: none;
+	color: #870013;
+}
+
+/*****************basic layout *****************/
+body {
+	color: #333;
+}
+.background-container {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: -10;
+	/*background-image: url(//link-to-image);*//*Image charge via data-interchange*/
+	background-color: #54a0eb;
+	/*background-size: cover;*/
+}
+
+/***Foundation Off Canvas***/
+.off-canvas-wrap, .inner-wrap { min-height: 100%; }
+.off-canvas-wrap{
+	height: 100%;
+	overflow-y: auto;
+	-webkit-backface-visibility: visible; /*si hidden, bloque le scroll dans Chrome */
+}
+
+/*.inner-wrap { background: #54a0eb no-repeat static left top; }*//*static au lieu de fixed pour résoudre bug Chrome*/
+.tab-bar { background-color:#54a0eb; } /*bleu ciel*/
+.tab-bar-section { background: #54a0eb no-repeat 8px 2px; }
+
+/* Menu de navigation pour smartphones */
+.left-off-canvas-menu {
+	background:#4686c5;
+	-ms-transform: translate(-100%, 0);
+	-webkit-transform: translate3d(-100%, 0, 0);
+	-moz-transform: translate3d(-100%, 0, 0);
+	-ms-transform: translate3d(-100%, 0, 0);
+	-o-transform: translate3d(-100%, 0, 0);
+	transform: translate3d(-100%, 0, 0);
+}
+ul.off-canvas-list li label {
+	color: rgba(0,0,0,.7);
+	font-size: 1rem;
+	font-weight: normal;
+	text-transform: none;
+	padding: 0.3rem 0.66667rem;
+	background:#4686c5;
+	border-top: 1px solid #336ca6;
+	border-bottom: 1px solid #336ca6;
+}
+ul.off-canvas-list li a {
+	color:#fff;
+	padding: 0.66667rem 0.9375rem;
+	border-bottom: 1px solid #336ca6;
+}
+ul.off-canvas-list li a:hover {
+	background:#336ca6;
+}
+.left-submenu {
+	background:#4686c5;
+}
+.left-submenu .back>a {
+	color:#fff;
+	font-size: .75rem;
+	padding: 0.3rem 0.66667rem;
+	background:#4686c5;
+	border: none;
+}
+.left-submenu .back>a:hover {
+	background:#336ca6;
+	border: none;
+}
+.move-right .exit-off-canvas {
+	box-shadow:none;
+	background: rgba(0,0,0,.3);
+}
+
+/* Contenu */
+.row { max-width: 118.75rem; }
+.columns, header, nav, section, main, aside, footer { /* à suppirmer en production */
+	/*border:1px solid brown;*/
+}
+.col-1, .col-2 { padding:0; }
+.col-1 ul { margin:0; }
+.col-2 nav { padding:0 .1rem; }
+.col-2 footer { padding:0 12rem 0 1rem; }
+.accueil aside {text-align:center;}
+.accueil aside img {margin:7% 0;}
+.breadcrumbs {margin:0; padding: .5rem .875rem; border:none; background:none;}
+.breadcrumbs>*:before { content: ">"; margin: 0 .4rem; top:0;}
+.breadcrumbs .current:hover a,
+.breadcrumbs .current:focus a {
+	text-decoration: underline;
+}
+[aria-label="breadcrumbs"] [aria-hidden="true"]:after { content: ">" }
+.rouge .breadcrumbs a {color: #9d0016; }
+.vert .breadcrumbs a {color: #a1b10d; }
+.jaune .breadcrumbs a {color: #fed700; }
+.marron .breadcrumbs a {color: #7e4210; }
+
+.danger {color: #9d0016; }
+
+.example-orbit img { border:5px solid #333; /*outline: 5px solid #FFF; margin:10px;*/}
+.example-orbit p { margin:0; }
+.example-orbit .titre { font-weight:600; }
+
+.reveal-modal-bg {
+	background: rgba(0,0,0,0.85);
+}
+.reveal-modal {
+	background-color: #000;
+	border: none;
+	padding: 2.4rem;
+}
+.reveal-modal .close-reveal-modal {
+	top: 0;
+}
+
+.img-facebook, .img-twitter, .img-message { width:26%; height:26%; }
+.img-telephone { width:83%; height:83%; }
+.bt-share { width:3em; height:3em; margin:.5em 3% .5em 0; }
+/*
+#Layer_3 {
+fill: #d64526;
+}
+*/
+.telephone {
+	/*margin: 14px 0 0 18px;*/
+	color: #fff;
+	font-weight: bold;
+/*line-height: 1;*/
+	display:block;
+	-moz-transform: rotate(-10deg);
+	-o-transform: rotate(-10deg);
+	-webkit-transform: rotate(-10deg);
+	-ms-transform: rotate(-10deg);
+	transform: rotate(-10deg);
+	/*text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);*/
+}
+.accueil aside .telephone img { margin: 1rem 0 0 0; }
+.accueil aside .telephone:hover { color: #4686c5; }
+
+/***Header***/
+/* header, we will hide h1 a text and replace it with an image, we assign a height for it so the image wont cut off */
+header {
+/* adjust according your image size */
+	width: 160px;
+	height: 180px;
+	margin: 0 auto;
+	padding: 0;
+}
+header h1 a {
+	background: url(./logo-musee-maisons-comtoises.png) no-repeat left top;
+	display: block;
+	position:absolute;
+	top:15px;
+	width: 160px;
+	height: 148px;
+	text-indent: -999em;
+	text-decoration: none;
+}
+
+/***Menu navigation gauche***/
+#nav-left {
+	list-style:none;
+	/*display:block; position:absolute;*/
+	/*width: 166px;*/
+	/*height:300px;*/
+	margin: 0 auto;
+	/*top:180px; background-color: red;*/
+font-size: 1rem;
+}
+
+.bt-musee, .bt-durable, .bt-passgraines, .bt-jeuxpiste, .bt-newsletter, .bt-tourisme, .bt-presse, .bt-partenaires, .bt-contact {
+	display:block;
+	overflow:hidden;
+	position:relative;
+	padding: .3rem .4rem;
+	font-family: HarabaraBold, Helvetica, sans-serif;
+	line-height: 1;
+	letter-spacing: 1px;
+	text-align: center;
+	color: #54a0eb;
+	background: #fff;
+	border-radius: 2px;
+	box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5); /*box-shadow: 3px 3px 6px #555555;*/
+}
+
+.bt-musee {
+	left:9%; top:12px; z-index:100;
+	-moz-transform: rotate(3deg);  /* FF3.5+ */
+	-o-transform: rotate(3deg);  /* Opera 10.5 */
+	-webkit-transform: rotate(3deg);  /* Saf3.1+, Chrome */
+	-ms-transform: rotate(3deg);  /* IE9 */
+	transform: rotate(3deg);
+width:80%;
+font-size: 1.625em;
+}
+.bt-durable {
+	left:1%; top:16px; z-index:101;
+	-moz-transform: rotate(-3deg);
+	-o-transform: rotate(-3deg);
+	-webkit-transform: rotate(-3deg);
+	-ms-transform: rotate(-3deg);
+	transform: rotate(-3deg);
+width:95%;
+font-size: 1em;
+}
+.bt-jeuxpiste {
+	left:4%; top:18px; z-index:99;
+	-moz-transform: rotate(1deg);
+	-o-transform: rotate(1deg);
+	-webkit-transform: rotate(1deg);
+	-ms-transform: rotate(1deg);
+	transform: rotate(1deg);
+width:90%;
+font-size: 1.375em;
+}
+.bt-passgraines {
+	left:10%; top:19px; z-index:99;
+	-moz-transform: rotate(-2deg);
+	-o-transform: rotate(-2deg);
+	-webkit-transform: rotate(-2deg);
+	-ms-transform: rotate(-2deg);
+	transform: rotate(-2deg);
+width:70%;
+font-size: 1em;
+color: #8fb0d7;
+}
+.bt-newsletter {
+	left:4%; top:20px; z-index:100;
+	-moz-transform: rotate(1deg);
+	-o-transform: rotate(1deg);
+	-webkit-transform: rotate(1deg);
+	-ms-transform: rotate(1deg);
+	transform: rotate(1deg);
+width:90%;
+font-size: 1.375em;
+color: #8fb0d7;
+}
+.bt-tourisme {
+	left:2%; top:23px; z-index:101;
+	-moz-transform: rotate(-3deg);
+	-o-transform: rotate(-3deg);
+	-webkit-transform: rotate(-3deg);
+	-ms-transform: rotate(-3deg);
+	transform: rotate(-3deg);
+width:90%;
+font-size: 1em;
+color: #8fb0d7;
+}
+.bt-presse {
+	left:6%; top:26px; z-index:100;
+	-moz-transform: rotate(-2deg);
+	-o-transform: rotate(-2deg);
+	-webkit-transform: rotate(-2deg);
+	-ms-transform: rotate(-2deg);
+	transform: rotate(-2deg);
+width:85%;
+font-size: 1.5em;
+}
+.bt-partenaires {
+	left:4%; top:29px; z-index:101;
+	-moz-transform: rotate(-3deg);
+	-o-transform: rotate(-3deg);
+	-webkit-transform: rotate(-3deg);
+	-ms-transform: rotate(-3deg);
+	transform: rotate(-3deg);
+width:90%;
+font-size: 1.05em;
+color: #8fb0d7;
+}
+.bt-contact {
+	left:6%; top:33px; z-index:100;
+	-moz-transform: rotate(1deg);
+	-o-transform: rotate(1deg);
+	-webkit-transform: rotate(1deg);
+	-ms-transform: rotate(1deg);
+	transform: rotate(1deg);
+width:90%;
+font-size: 1.5em;
+}
+#nav-left a:visited {
+	color: #54a0eb;
+}
+#nav-left a:hover {
+/*	-moz-transform: rotate(5deg);
+	-o-transform: rotate(5deg);
+	-webkit-transform: rotate(5deg);
+	-ms-transform: rotate(5deg);
+	transform: rotate(5deg);*/
+	color: #4686c5;
+}
+
+@media only screen and (min-width: 90.063em) { /* min-width 1441px, xlarge screens */
+ #nav-left { font-size: 1.375rem; }
+ .bt-tourisme { left:10px; width: 80%; }
+}
+@media only screen and (min-width: 120.063em) { /* min-width 1921px, xxlarge screens */
+ #nav-left { font-size: 1.375rem; }
+ .bt-musee { left:7%; width: 75%; }
+ .bt-durable { left:8%; width: 70%; }
+ .bt-jeuxpiste { left:10%; width: 70%; }
+ .bt-passgraines { left:15%; width: 60%; }
+ .bt-newsletter { left:7%; width: 75%; }
+ .bt-tourisme { left:10%; width: 70%; }
+ .bt-presse { left:8%; width: 80%; }
+ .bt-partenaires { left:12%; width: 72%; }
+ .bt-contact { left:15%; width: 70%; }
+}
+
+/* Menu navigation horizontal déplacé dans feuille de style dédiée */
+/* Menu intérieur navigation images */
+.nav-images li {
+	display: table;
+	/*border-collapse: collapse;*/
+	width: 100%;
+	/*position: relative;*/
+}
+.nav-images a {
+	color:#fff;
+	/*position: relative;*/
+}
+.nav-images.inner {
+	display: table-row;
+	overflow: hidden;
+}
+.li-img {
+	display: table-cell;
+	vertical-align: middle;
+	width: 40%;
+	padding-right: 1em;
+	/*position: absolute;*/
+	/*top:2em;*/
+}
+.li-img img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius:0 5px 5px 0;
+}
+.li-text {
+	display: table-cell;
+	vertical-align: middle;
+	width: 60%;
+	font-family: Helvetica,/* Raleway, 'Open Sans', 'Oswald',*/ sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	background-color: #54a0eb;
+	padding:0 1em;
+}
+.rouge .li-text { background-color: #9d0016; }
+.vert .li-text { background-color: #a1b10d; }
+.jaune .li-text { background-color: #fed700; }
+.marron .li-text { background-color: #7e4210; }
+
+.nav-images a:hover .li-text { background-color: #4686c5; }
+.rouge .nav-images a:hover .li-text { background-color: #bc001a; }
+.vert .nav-images a:hover .li-text { background-color: #b9cc0f; }
+.jaune .nav-images a:hover .li-text { background-color: #fee249; }
+.marron .nav-images a:hover .li-text { background-color: #985013; }
+
+@media all and (min-width: 40.063em) { /*641px*/
+  .nav-images {
+    padding: 1em;
+    /*max-width: 70em;*/
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .nav-images li {
+    padding: 0.5em;
+    display: block;
+    width: 50%;
+    float: left;
+    background: none;
+    border: 0;
+  }
+  .nav-images.inner {
+    display: block;
+  }
+  .li-img, .li-text, .nav-images.inner {
+    display: block;
+    width: auto;
+    padding: 0;
+  }
+  .li-img img {
+	border-radius:0 0 5px 5px;
+  }
+  .li-text {
+    padding: 0.5em;
+height: 3.5em;
+  }
+}
+
+@media all and (min-width: 64.063em) { /*1025px*/
+  .nav-images li {
+    width: 33.33333333%;
+  }
+  .li-text {
+    padding: 0.5em;
+  }
+}
+@media only screen and (min-width: 90.063em) { /* min-width 1441px, xlarge screens */
+  .nav-images li {
+    width: 25%;
+  }
+}
+@media only screen and (min-width: 120.063em) { /* min-width 1921px, xxlarge screens */
+  .li-text {
+	height: auto;
+  }
+}
+
+
+
+/***** MAIN *****/
+main {
+	font-family: 'Source Sans Pro', sans-serif;
+/*font-size: 1.125rem;*/
+	background: #fff;
+	border-radius: 5px;
+}
+.accueil main {
+	background: none;
+}
+main .nav-int {
+	/*padding: 1.5em .8em 0 .8em;*/
+}
+main .nav-int a {
+	color: #4686c5; /*#ffd800; #e0be00;*/ /**/ /*jaune*/
+	text-decoration: none;
+}
+main .nav-int a:hover {
+	text-decoration: underline;
+}
+
+main .text-int {
+	/*margin: 12px 0 0 15px;*/
+	padding: 1em 1em 1.5em 1em;
+	line-height: 1.2em;
+}
+main .text-int a[href$='.pdf'] {
+	background: transparent url(./pdf.png) no-repeat center right;
+	padding: 0 1.3em 0 0;
+}
+main .text-int th {
+	text-align: left;
+}
+
+/* HEADINGS */
+main h1, main h2, main h3, main h4, main h5, main h6 {
+font-family: 'Source Sans Pro', sans-serif;
+/*font-family: "Lucida Grande", "Lucida Sans", Verdana, sans-serif;*/
+	font-weight:600;
+	margin-bottom: 0.2rem;
+	line-height:1.2;
+}
+main h1 { /*font-family: inherit; font-weight:500;*/ font-size:1.5rem; text-transform: uppercase; margin:0; }
+main h2 { font-size:1.5rem; margin-top: 1.2rem; }
+main h3 { font-size:1.25rem; margin-top: 1rem; font-style: italic; }
+main h4, main h5, main h6 { font-size:1.125rem; margin-top: 0.6rem; }
+main h2 + h3, main h3 + h4, main h4 + h5, main h5 + h6 { margin-top: 0; }
+main h1:first-child, main h2:first-child, main h3:first-child, main h4:first-child { margin-top: 0; }
+
+.rouge .nav-int h1,
+.vert .nav-int h1,
+.jaune .nav-int h1,
+.marron .nav-int h1,
+.bleu .nav-int h1 {
+	color: white;
+	padding: .5em;
+}
+.rouge .nav-int h1 { background-color: #9d0016; }
+.vert .nav-int h1 { background-color: #a1b10d; }
+.jaune .nav-int h1 { background-color: #fed700; }
+.marron .nav-int h1 { background-color: #7e4210; }
+.bleu .nav-int h1 { background-color: #4686c5; }
+/* END HEADINGS */
+
+/* TEXT */
+main p {
+/*font-family: 'Source Sans Pro', sans-serif;*/
+/*font-size: 1.0625rem;*/
+	margin: 0 0 .4rem 0;
+	line-height: 1.4;
+}
+main p + ul {
+	/*margin-top: 0;*/ /*sans effet*/
+	margin-bottom: .4rem;
+}
+main .txtleft {text-align:left;}
+main .txtcenter {text-align:center;}
+main .txtright {text-align:right;}
+main .txtjustify {text-align:justify;}
+.adroite { float: right; padding: 2px 0 2px 10px; }
+.agauche { float: left; padding: 2px 10px 2px 0; }
+.description {overflow: hidden;}
+.arrondi {border-radius: 4px;}
+/* END TEXT */
+
+/* LISTS */
+/* lists in content need some margins to look nice */
+main ul,
+main ol,
+main dl {
+	/*font-size: 1.0em;*/
+	line-height: 1.3;
+	/*margin: 0 0 1.5em 0;*/
+}
+main ul li,
+main ol li {
+	margin: 0 0 0.25em 0;
+}
+/* definition lists topics on bold */
+div#main dl {
+	margin-bottom: 2em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #c0c0c0;
+}
+div#main dl dt {
+	font-weight: bold;
+	margin: 0 0 0 1em;
+}
+div#main dl dd {
+	margin: 0 0 1em 1em;
+}
+/* END LISTS */
+
+/* FORM */
+main .masque {display:none;}
+main label, main textarea { font-size: 1rem; }
+main input[type="submit"] {
+	min-width:100px;
+	height:2em;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	background: #eee;
+}
+main input[type="submit"]:hover {
+	border: 1px solid #ccc;
+}
+/* END FORMULAIRE */
+/***** END MAIN *****/
+
+/***** FOOTER *****/
+footer {
+	/*padding: 1.5em 0;*/
+	color: #fff;
+	background: url(.\nancray-15km.png) no-repeat bottom right;
+	/*border: 1px dotted black;*/
+	position:relative;
+	top:-30px;
+	height:103px; /* hauteur de l'image nancray-15km */
+	z-index:10;
+}
+
+footer p {
+	font-size: 0.9rem;
+	text-align: left;
+	margin: 0;
+	padding: 2rem 0 0 0;
+}
+footer p a, footer p a:hover, footer p a:visited {
+	color: #fff;
+}
+/***** END FOOTER *****/
+
+/* as we hid all hr for accessibility we create new hr with div class="hr" element */
+/* à faire */
+div.hr {
+	height: 1px;
+	padding: 1em;
+	border-bottom: 1px dotted black;
+	margin: 1em;
+}
+
+/* Bouton pour lancer les panoramas HD en plein écran */
+#MUSEE_NANCRAY_FLASH { display: block; }
+.visite360 video { display:block; margin:0; padding:0; }
+.visite360-titre {
+	/*font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;*/
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size:.9em;
+	line-height:2;
+	color:#fff;
+	background-color:#0066cc;
+	border-radius:6px 6px 0 0;
+}
+.visite360-footer {
+	height:7px;
+margin-bottom:7%;
+	background-color:#0066cc;
+	border-radius:0 0 6px 6px;
+}
+
+video {
+  width: 100%;
+  max-width: 960px;
+  /* just in case, to force correct aspect ratio */
+  /*height: auto !important;*/
+}
+
+/***** MEDIA QUERIES *****/
+@media only screen and (max-width: 28em) { /* max-width 448px, spécial */
+ .tab-bar-section { text-align: left; }
+ .tab-bar-section h1 { font-size: .9em; padding-left: 42px; }
+}
+@media only screen and (min-width: 40.063em) { /* min-width 641px, medium screens */
+ .accueil main {padding:0 1rem;}
+ main .nav-int { padding: 1.5em 1.5em 0 1.5em; }
+ main .text-int { padding: 1em 1.8em 1.8em 1.8em; /*padding: 1em 1em 1.5em 1em;*/ }
+}
+@media only screen and (min-width: 64.063em) { /* min-width 1025px, large screens */
+ .row { width: 96%; }
+ .colonnes .text-int {
+	-webkit-columns: 2 auto;
+	-moz-columns: 2 auto;
+	columns: 2 auto;
+
+	-webkit-column-gap : 3rem;
+	-moz-column-gap : 3rem;
+	column-gap : 3rem;
+
+	-webkit-column-rule: 1px dotted #ccc;
+	-moz-column-rule: 1px dotted #ccc;
+	column-rule: 1px dotted #ccc;
+ }
+ main p {
+	text-align: justify;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+ }
+}
+@media only screen and (min-width: 90.063em) { /* min-width 1441px, xlarge screens */
+ .row { width: 94%; }
+ .colonnes .text-int {
+	-webkit-columns: 3 auto;
+	-moz-columns: 3 auto;
+	columns: 3 auto;
+ }
+ .visite360-titre {font-size:1em;}
+}
+@media only screen and (min-width: 120.063em) { /* min-width 1921px, xxlarge screens */
+/* .colonnes .text-int {
+	-webkit-columns: 4 auto;
+	-moz-columns: 4 auto;
+	columns: 4 auto;
+ }*/
+ .visite360-titre {font-size:1.1em;}
+}
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) { 
+ .tab-bar-section { background-size: 41px 40px; } /* nécessaire pour conserver la taille du logo en retina ? */
+}
+@media only screen and (min-width: 90.063em) {
+  .xlarge-1 {
+    width: 8.33333%; }
+
+  .xlarge-2 {
+    width: 16.66667%; }
+
+  .xlarge-3 {
+    width: 25%; }
+
+  .xlarge-4 {
+    width: 33.33333%; }
+
+  .xlarge-5 {
+    width: 41.66667%; }
+
+  .xlarge-6 {
+    width: 50%; }
+
+  .xlarge-7 {
+    width: 58.33333%; }
+
+  .xlarge-8 {
+    width: 66.66667%; }
+
+  .xlarge-9 {
+    width: 75%; }
+
+  .xlarge-10 {
+    width: 83.33333%; }
+
+  .xlarge-11 {
+    width: 91.66667%; }
+
+  .xlarge-12 {
+    width: 100%; }
+}
+/***** END MEDIA QUERIES *****/
+/* Stylesheet: Nancray 2014 Modified On 2015-10-02 11:48:28 */
+/*nav {}*/
+
+.top-nav {
+	font-family: HarabaraBold, Helvetica, Verdana, sans-serif;
+	letter-spacing: 1px;
+	text-align:center;
+	/*font-size:0;*/ /*supprime espace de 4px entre éléments inline-block, pas utile si {strip} dans le gabarit du menu*/
+	margin:1.5em 0 2.5em 0;
+}
+
+.top-nav li {
+	display:inline-block;
+	vertical-align:top;
+	position:relative;
+	z-index: 999;
+	width:24%;
+	margin-right:1%;
+	background-color: #9d0016; /*couleur rouge par défaut*/
+	box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+}
+.top-nav li:last-child {
+	margin-right:0;
+}
+.top-nav > li:nth-child(2), .top-nav > li:nth-child(2) li {
+	background-color: #a1b10d;
+}
+.top-nav > li:nth-child(3), .top-nav > li:nth-child(3) li {
+	background-color: #fed700;
+}
+.top-nav > li:nth-child(4), .top-nav > li:nth-child(4) li {
+	background-color: #7e4210;
+}
+.top-nav > li li:nth-child(2n+1) {
+	background: #870013; /*Les sous-rubriques impaires sont foncées*/
+}
+.top-nav > li:nth-child(2) li:nth-child(2n+1) {
+	background-color: #8b990b;
+}
+.top-nav > li:nth-child(3) li:nth-child(2n+1) {
+	background-color: #e1bf00;
+}
+.top-nav > li:nth-child(4) li:nth-child(2n+1) {
+	background-color: #6d390e;
+}
+.top-nav > li li:hover { /*Les sous-rubriques sont plus claires au survol*/
+	background-color: #bc001a;
+}
+.top-nav > li:nth-child(2) li:hover {
+	background-color: #b9cc0f;
+}
+.top-nav > li:nth-child(3) li:hover {
+	background-color: #fee249;
+}
+.top-nav > li:nth-child(4) li:hover {
+	background-color: #985013;
+}
+
+.top-nav > li:hover,
+.top-sub-nav > li:hover {
+  /*color:white;*/
+}
+
+.top-nav > li.active > a {
+  color:green;
+}
+.top-nav > li a {
+	display:block;
+	text-decoration:none;
+	font-size:1em;
+	line-height: 1.1em;
+	text-align:center;
+	color:#fff;
+	padding: .4em .7em;
+}
+.top-nav > li > a { height: 3em; }
+/*.top-nav li a { display:inline-block; height: 3em; }*/
+
+.top-nav > li > a:hover,
+.top-sub-nav > li > a:hover {
+	/*color:grey;*/
+}
+
+.top-sub-nav {
+	position:absolute;
+	width:100%;
+	visibility:hidden;
+	margin:0;
+}
+.top-nav li:hover .top-sub-nav {
+	visibility:visible;
+}
+.top-sub-nav > li {
+	display:block;
+	width:100%;
+	position:relative;
+}
+.top-sub-nav > li a {
+	font-size: .8em;
+	text-align:left;
+	padding: .7em .8em;
+}
+.top-sub-nav > li:last-child {
+	border-radius: 0 0 5px 5px;
+}
+
+@media only screen and (min-width: 46.25em) { /*=740px*/
+  .top-nav li a { font-size: 1.2em; height: 3em; }
+  .top-sub-nav li a { font-size: .9em; height: auto; }
+}
+@media only screen and (min-width: 64.063em) { /* min-width 1025px, large screens */
+  .top-nav li a { font-size: 1.5em; }
+  .top-sub-nav li a { font-size: .95em; }
+}
+@media only screen and (min-width: 90.063em) { /* min-width 1441px, xlarge screens */
+  .top-nav li a { font-size: 1.8em; }
+  .col2 .top-nav li a { padding: .7em .6em; height: 2.6em; }
+  .top-sub-nav li a { font-size: 1.3em; padding: .8em 1em; }
+  .col-2 .top-sub-nav li a { padding-left: 10%; }
+}
+@media only screen and (min-width: 120.063em) { /* min-width 1921px, xxlarge screens */
+  .top-nav li a { padding: .7em .6em; height: 2.6em; }
+  .top-sub-nav li a { padding-left: 10%; }
+  .col-2 .top-sub-nav li a { padding-left: 20%; }
+}
+/* Stylesheet: Nancray 2014 - Menu horizontal html5 inline-block Modified On 2015-01-26 14:02:18 */
+.events-upcominglist { overflow: hidden; }
+.events-list { margin:0; }
+.events-list li {
+  /*background: url(http://www.maisons-comtoises.org/images/icon_arrow_right.png) no-repeat 97% 50%;*/
+  /*background: #eee;*/
+  border-bottom: 1px solid #ccc; /*border: 1px solid #ccc;*/
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0;
+}
+.events-list.inner {
+  display: table-row;
+  overflow: hidden;
+}
+.event-img {
+  /*border-right: 1px solid #ccc;*/
+  display: table-cell;
+  vertical-align: middle;
+  width: 30%;
+}
+.event-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.event-text {
+  display: table-cell;
+  vertical-align: middle;
+  width: 70%;
+  padding: 0 1em;
+  /*line-height: 1.2;*/
+}
+.event-text h2 {
+  margin: 0;
+  font-size:1rem; /*font-size:1.125rem;*/
+  font-weight:700;
+line-height:1.1;
+}
+.more-events .event-text h2 {
+  font-weight:600;
+  color:#666;
+}
+.event-date {
+  margin: 0;
+  color: #333;
+  font-weight:700;
+  text-align:left;
+}
+.more-events .event-date {
+  font-weight:400;
+  font-size:.8rem;
+  color:#666;
+}
+.orbit-caption .event-date {
+  font-weight:400;
+  color:#eee;
+}
+.event-description, .event-lieu {
+  margin-bottom: 1em;
+}
+.event-image {
+  margin-bottom: 2em;
+}
+.event-summary {
+  display: none;
+  margin: 0;
+  color: #333;
+  line-height: 1.2;
+  font-size:.875rem;
+}
+.event-action {
+  color: #9d0016;
+  /*margin: 0;
+  font-size:.875rem;*/
+}
+.events-info {
+  font-size:1.25rem;
+  margin: 1em 0;
+}
+.event-categorie {
+  font-size:.8rem;
+  color:#666;
+  margin-bottom: 0;
+}
+.orbit-caption .event-categorie {
+  color:#ccc;
+}
+
+@media screen and (min-width: 40.063em) {
+  .events-list li {
+    /*background: none;*/
+  }
+  .event-summary {
+    display: block;
+  }
+  .more-events .event-summary {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 64.063em) {
+  .events-list li {
+    float: left;
+    width: 50%;
+  }
+  .more-events .events-list li {
+    float: none;
+    width: 100%;
+  }
+  .events-list.inner {
+    padding-right: 1em;
+  }
+}
+/* Stylesheet: Nancray 2014 - News et Calendar Modified On 2015-02-08 21:30:03 */
